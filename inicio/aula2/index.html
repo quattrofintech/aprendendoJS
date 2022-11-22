@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Aula 2</title>
+</head>
+<style>
+    body{
+        width: 60%;
+        margin: auto;
+        text-align: center;
+        background-color: rgb(233, 230, 230);
+    }
+    
+    h1{
+        font-size: 5.5em;
+    }
+
+    span{
+        display: block;
+        padding: 10px;
+        font-size: 20pt;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    div{
+        text-align: left;
+        padding: 10px;
+        margin: 20px;
+        margin-left: 0;
+    }
+
+    input{
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    button{
+        padding: 8px;
+        background-color: orange;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+
+    p{
+        font-weight: bolder;
+        font-size: 22pt;
+
+    }
+
+    #res-server{
+        border:1px solid red;
+        padding: 10px;
+        border-radius: 5px;
+        color: red;
+        width: 30%;
+        display: none;
+        font-size: 12pt;
+    }
+
+
+</style>
+<body>
+    <h1>Aula 2</h1>
+
+    <span id="salario-funcionario"></span>
+    <span id="peso-usuario"></span>
+
+    <div id="verificar-numero">
+        <input type="number" name="numero" />
+        <button onclick="numero()">Verificar</button>
+        <p id="verificar-p">
+
+        </p>
+    </div>
+
+    <header>
+        <form onsubmit="login(event)" method="post">
+            <span id="res-server"></span>
+            <div>
+                <label>
+                    Username <br>
+                    <input type="text" name="username" required>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Senha <br>
+                    <input type="password" name="password" minlength="6" required>
+                </label>
+            </div>
+            <input type="submit" value="Logar">
+        </form>
+    </header>
+    <script src="index.js"></script>
+</body>
+</html>
