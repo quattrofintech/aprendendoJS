@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 50%;
+            margin: auto;
+            padding-top: 5%;
+        }
+        form{
+            width: 50%;
+            margin: auto;
+        }
+        form fieldset{
+            border-radius: 10px;
+            padding: 20px;
+            border:1px solid #ccc;
+        }  
+        form fieldset legend{
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0px 10px;
+        }
+
+        
+        form fieldset .content-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        form fieldset div > input{
+            padding: 5px;
+            margin:5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 12pt;
+            cursor: pointer;
+            background-color: rgb(155, 154, 154);
+            color: white;
+
+        }
+
+        form fieldset div label{
+            text-align: left;
+            font-size: 14pt;
+            color: #ccc;
+        }
+
+        form fieldset div label input{
+            padding: 5px;
+            font-size: 12pt;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+
+        table{
+            width: 50%;
+            margin: 50px auto;
+            font-size: 14pt;
+        }
+
+        table thead{
+            text-align: center;
+            background-color: rgb(155, 154, 154) ;
+            color: white;
+            font-weight: bold;
+        }
+
+        table thead tr td{
+            padding: 5px;
+        }
+
+        table tbody{
+
+        }
+
+    </style>
+</head>
+<body>
+    <form onsubmit="formulario(event)">
+        <fieldset>
+            <legend>Aluno</legend>
+            <div>
+                <label>
+                    ID <br>
+                    <input type="number" name="id" disabled>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Nome <br>
+                    <input type="text" name="name" required>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Média <br>
+                    <input type="text" name="mean" required>
+                </label>
+            </div>
+            <div class="content-buttons">
+                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Alterar">
+                <input type="submit" value="Pesquisar">
+                <input type="submit" value="Listar">
+                <input type="submit" value="Remover">
+                <input type="reset" value="Limpar">
+            </div>
+        </fieldset>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nome</td>
+                <td>Média</td>
+                <td>Situação</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="index.js"></script>
+</body>
+</html>
+
+CODIGO 
+DESCRIÇÃO 
+PRECO
+QNT
