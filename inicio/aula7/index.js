@@ -1,4 +1,5 @@
 const alunos = []
+
 // Arrow Function
 const formulario = (e) => {
     e.preventDefault()
@@ -10,7 +11,7 @@ const formulario = (e) => {
             break
         case "Alterar":
             // faça tal coisa
-            console.log("Chamar Função Alterar")
+            alterarAluno()
             break
         case "Pesquisar":
             // faça tal coisa
@@ -46,6 +47,90 @@ const cadastrarAluno = () => {
     limparCampos()
 }
 
+const alterarAluno = () => {
+    const id = document.getElementsByName("id")[0].value
+    if(id){
+        const nome = document.getElementsByName("name")[0].value.trim().toUpperCase()
+        const media = Number(document.getElementsByName("mean")[0].value.replace(",", "."))
+        let situacao
+        if(media >= 6){
+            situacao = "APROVADO"
+        }else{
+            situacao = "REPROVADO"
+        }
+        const retorno = alterarArray(alunos, id, nome, media, situacao )
+        if(retorno){
+            exibirTabela(alunos)
+            limparCampos()
+        }else{
+            exibirTabela([])
+        }
+    }else{
+        exibirTabela([])
+    }
+}
+
+const alterarArray = (array, id, nome, media, situacao) => {
+    for(let item in array){
+        if(array[item].id == id){
+            array[item].nome = nome
+            array[item].media = media
+            array[item].situacao = situacao
+            return true
+        }
+    }
+    return false
+}
+
+const pesquisarAluno = () => {
+    const id = Number(window.prompt("Digite o código do Aluno").trim())
+    if(id){
+        const data = pesquisarArray(id)
+        if(!data){
+            exibirTabela([])
+        }else{
+            exibirTabela([data])
+            document.getElementsByName("id")[0].value = data.id
+            document.getElementsByName("name")[0].value = data.nome
+            document.getElementsByName("mean")[0].value = data.media
+        }
+    }else{
+        console.log("Nenhum ID digitado!")
+        document.querySelector("form").reset()
+    }
+
+}
+
+const pesquisarArray = (id) => {
+    for(let item in alunos){
+        if(alunos[item].id === id){
+            return alunos[item]
+        }
+    }
+    return false
+}
+
+const listarAlunos = () => {
+    exibirTabela(alunos)
+    limparCampos()
+}
+
+const removerAluno = () => {
+    const id = Number(window.prompt("Digite o ID do Aluno para ser REMOVIDO:").trim())
+    if(id){
+        for(let item in alunos){
+            if(alunos[item].id === id){
+                // remover
+                alunos.splice(item, 1)
+                return exibirTabela(alunos)
+            }
+        }
+    }else{
+        console.log("Id não encontrado")
+    }
+    
+}
+
 const returnLastID = (array) => {
     if(!array.length){
         return 1
@@ -54,7 +139,7 @@ const returnLastID = (array) => {
     }
 }
 
-const exibirTabela =(array) => {
+const exibirTabela = (array) => {
     const tbody = document.querySelector("table tbody")
     tbody.innerHTML = ""
     if(!array.length){

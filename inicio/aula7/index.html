@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,8 +82,12 @@
             padding: 5px;
         }
 
-        table tbody{
-
+        @media(max-width: 600px){
+            body{
+                width: 90%;
+                margin: auto;
+                padding-top: 5%;
+            }
         }
 
     </style>
@@ -113,9 +117,9 @@
             <div class="content-buttons">
                 <input type="submit" value="Cadastrar">
                 <input type="submit" value="Alterar">
-                <input type="submit" value="Pesquisar">
-                <input type="submit" value="Listar">
-                <input type="submit" value="Remover">
+                <input type="button" value="Pesquisar" onclick="pesquisarAluno()">
+                <input type="button" value="Listar" onclick="listarAlunos()">
+                <input type="button" value="Remover" onclick="removerAluno()">
                 <input type="reset" value="Limpar">
             </div>
         </fieldset>
@@ -137,8 +141,3 @@
     <script src="index.js"></script>
 </body>
 </html>
-
-CODIGO 
-DESCRIÇÃO 
-PRECO
-QNT
