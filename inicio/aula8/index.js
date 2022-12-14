@@ -93,11 +93,65 @@ const exercicio4 = () => {
 
 }
 
+const exercicio5 = () => {
+    const vezes = getRandomInt()
+    
+    for(let i = 0; i < vezes; i++){
+        const n = getRandomInt(0, 11)
+        let resultado = n
+        if(n === 0){
+            exibirTela(`R: ${n}! = 1`, document.querySelector("section.exe5"))
+        }else{
+            for(let i = n - 1; i > 0; i--){
+                resultado = resultado * i
+            }
+            exibirTela(`R: ${n}! = ${resultado}`, document.querySelector("section.exe5"))
+        }
+    }
+    
+}
+
+const exercicio6 = () => {
+    const array = []
+    for(let i = 0; i < 500; i++){
+        const n = getRandomInt(0, 1000)
+        if(n >= 0){ 
+            array.push(n)
+        }
+    }
+    array.sort(
+        function(a, b){
+            return a - b
+        }
+    )
+    //console.log(array)
+    //console.log(array[0])
+    //console.log(array[array.length - 1])
+
+    let soma = 0
+    let menor = 999999
+    let maior = -99999
+    for(let i = 0; i < array.length; i++){
+        soma += array[i]
+        if(menor > array[i])
+            menor = array[i]
+        if(maior < array[i])
+            maior = array[i]
+    }
+    
+    exibirTela(`Maior R: ${maior}`, document.querySelector("section.exe6"))
+    exibirTela(`Menor R: ${menor}`, document.querySelector("section.exe6"))
+    exibirTela(`Média R: ${(soma / array.length).toFixed(2)}`, document.querySelector("section.exe6"))
+
+
+}
+
+
 function exibirTela(valor, lugar){
     lugar.innerHTML += `<p>${valor} </p>`
 }
 
-function getRandomInt(min, max){
+function getRandomInt(min = 1, max = 5){
     return Math.floor(Math.random() * (max - min) + min)
 }
 
@@ -107,3 +161,5 @@ exercicio1()
 exercicio2()
 exercicio3()
 exercicio4()
+exercicio5()
+exercicio6()
