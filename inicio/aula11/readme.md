@@ -1,0 +1,3 @@
+- LINKS API
+    - https://jsonplaceholder.typicode.com
+    - https://jsonplaceholder.typicode.com/guide/

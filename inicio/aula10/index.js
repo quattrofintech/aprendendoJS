@@ -1,18 +1,18 @@
 const url = 'https://pokeapi.co/api/v2/pokemon'
 const urlParams = new URLSearchParams(window.location.search)
-console.log(urlParams.get('name'))
 
 const getAllPokemon = async () => {
     const response = await fetch(`${url}?limit=151`)
-    console.log(response)
+    //console.log(response)
 
     const data = await response.json()
-    console.log(data)
+    //console.log(data)
 
     for(let i = 0; i < data.results.length; i++){
         const div = document.createElement('div')
         const name = document.createElement('h2')
         const link = document.createElement('a')
+        const img = document.createElement('img')
 
         removeView()
 
@@ -20,6 +20,16 @@ const getAllPokemon = async () => {
         link.setAttribute('href', `pokedex.html?name=${data.results[i].name}`)
         link.innerText = 'ler mais'
 
+        returnImg(data.results[i].name)
+        .then((data) =>{
+            //img.setAttribute('src',caminho da imagem )
+            img.setAttribute('src', data.sprites.front_default)
+        })
+        .catch((error) => {
+            console.log('Error:', error.status, error.message)
+        })
+
+        div.appendChild(img)
         div.appendChild(name)
         div.appendChild(link)
 
@@ -78,6 +88,17 @@ async function pokedex(){
 function removeView(){
     document.querySelector('#loading').classList.add('hide')
     document.querySelector('#content').classList.remove('hide')
+}
+
+const returnImg = async (name) => {
+    try{
+        const response = await fetch(`${url}/${name}`)
+        const data = await response.json()
+        return data
+    }catch(error){
+        console.log(error)
+    }
+    
 }
 
 // Operador Ternário

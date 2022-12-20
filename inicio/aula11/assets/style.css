@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* CABEÇALHO */ 
+
+
+/* HOME */
+#home main{
+    width: 90%;
+    margin: auto;
+}
+
+#home main article{
+    width: 80%;
+    margin: auto;
+}
+
+    /* POSTS */
+#home main article a>div{
+    width: 100%;
+    margin: 20px auto;
+    background-color: rgba(128, 128, 128, 0.626);
+    padding: 15px;
+} 
+
+#home main article a:hover > div{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.53);
+}
+
+    /* BUTTONS */
+#home main #buttons{
+    width: auto;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#home main #buttons button{
+    padding: 10px;
+    margin: auto 15px;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/*  POST  */
+
+#post {
+    
+}
+
+#post main{
+    width: 90%;
+    margin: auto;
+}
+
+#post main article{
+    width: 80%;
+    margin: auto;
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#post main article h3{
+    width: 70%;
+    margin: 15px auto;
+    text-align: left;
+    text-transform: capitalize;
+}
+#post main article p{
+    width: 70%;
+    margin: 15px auto;
+    text-align: left;
+}
