@@ -26,13 +26,36 @@
 
         </article>
 
+        <section class="content-comment">
+            <form method="post" onsubmit="toComment(event)">
+                <legend>Comentar</legend>
+                <label>
+                    <input type="text" name="name" placeholder="userName" required>
+                </label>
+                <br>
+                <label>
+                    <input type="email" name="email" placeholder="e-mail" required>
+                </label>
+                <br>
+                <textarea name="message" placeholder="comentário" required></textarea>
+                <br>
+                <input type="submit" name="Comentar">
+            </form>
+        </section>
+
         <div class="c-loader"></div>
         <section class="content-comments hiden">
 
         </section>
     </main>
-    <footer>
 
+    <footer>
+        <p>
+            Coded and maintained by 
+            <a href="https://github.com/gkaustchr" 
+            target="_blank">gkaustchr</a> 
+            © 2022
+        </p>
     </footer>
     
 

@@ -33,13 +33,19 @@ const allPosts = async () => {
 
         const com = document.createElement('span')
 
+        const iconCom = document.createElement('span')
+        iconCom.classList.add('material-symbols-outlined')
+        iconCom.innerText = 'comment'
+
         const qntComments = await returnComments(data[i].id)
         //console.log(qntComments.length)
 
         h3.innerText = `${data[i].title}`
         p.innerText = data[i].body.replaceAll('\n', '')
 
-        com.innerHTML = `${qntComments.length} Comentarios`
+        com.innerHTML = `${qntComments.length} <span class="material-symbols-outlined">comment</span>`
+
+        //com.appendChild(iconCom)
 
         icon.setAttribute('src', await returnImg(data[i].userId))
         
@@ -160,6 +166,66 @@ const listCommentsPost = (id) => {
         document.querySelector('main section.content-comments').classList.remove('hiden')
     })
     .catch((error) => console.log(error))
+}
+
+const toComment = (e) => {
+    e.preventDefault()
+    const name = document.getElementsByName('name')[0].value
+    const email = document.getElementsByName('email')[0].value
+    const message = document.getElementsByName('message')[0].value
+    //console.log(name, email, message)
+
+    // Criando um objeto
+    const body = {
+        body: message,
+        email: email,
+        name: name
+    }
+
+    fetch(`${url}/${urlParams.get('id')}/comments`,
+        {
+            method: 'POST',
+            body: JSON.stringify(
+                {
+                    body:message,
+                    email,
+                    name,
+                }
+            ),
+            headers: {
+                'Content-type':'application/json; charset=UTF-8'
+            }
+        }
+    )
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        writeComment(data)
+    })
+
+    document.querySelector('main section form').reset()
+    window.scrollTo(0, window.innerHeight)
+}
+
+function writeComment(data){
+    const div = document.createElement('div')
+    const icon = document.createElement('img')
+    const name = document.createElement('p')
+    const email = document.createElement('p')
+    const msg = document.createElement('p')
+
+    name.innerText = `Nome: ${data.name}`
+    email.innerText = `Email: ${data.email}`
+    msg.innerText = `Comentario:\n ${data.body.replaceAll('\n', '')}`
+    returnImg(data.id)
+    .then((linkImg) => icon.setAttribute('src', linkImg))
+
+    div.appendChild(icon)
+    div.appendChild(name)
+    div.appendChild(email)
+    div.appendChild(msg)
+
+    document.querySelector('main section.content-comments').appendChild(div)
 }
 
 const returnImg = async (id) => {
