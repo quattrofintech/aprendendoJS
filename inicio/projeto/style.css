@@ -9,7 +9,6 @@ header{
     background-size: cover;
 }
 
-
 header nav{
     display: flex;
     flex-wrap: nowrap;
@@ -34,25 +33,60 @@ header nav ul li a{
 }
 
 /* Main  */
-
-
-/* hotels */
-main .hotels{
+main section{
     width: 100%;
-    min-height: 70vh;
-    background-color: rgb(26, 25, 25);
-    color: white;
+    margin: 50px 0px;
 }
 
-main .hotels .card-content{
+main section h2{
+    margin:  50px 50px;
+    font-size: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main section .card-content{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-main .hotels .card-content .card{
-    width: 23%;
-    height: 20vh;
-    background-color: rgb(248, 6, 6);
-    color: white;
+main section .card-content a{
+    width: 25%;
+    height: auto;
+}
+
+main section .card-content .card{
+    width: 100%;
+    min-height: 350px;
+    background-color: white;
+    color: black;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+main section .card-content .card img{
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+main section .card-content .card div{
+    height: auto;
+    padding: 10px;
+}
+
+main section .card-content .card .left{
+    width: 60%;
+}
+
+main section .card-content .card .right{
+    width: 20%;
 }
