@@ -47,12 +47,14 @@ main section h2{
 main section .card-content{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 main section .card-content a{
     width: 25%;
     height: auto;
+    margin: 30px 20px;
 }
 
 main section .card-content .card{
@@ -76,6 +78,7 @@ main section .card-content .card img{
     padding: 0px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    object-fit: cover;
 }
 
 main section .card-content .card div{

@@ -4,11 +4,223 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body{
+            width: 100%;
+        }
+
+        body > div{
+            width: 70%;
+            margin: 10px auto;
+        }
+
+        /* ESTRELA */
+        body .estrela p::before{
+            content: '⭐';
+            margin-right: 5px;
+        } 
+
+        /* TITULO */
+        body .titulo{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ENDERECO */
+        body .endereco p::before{
+            content: '📍';
+            margin-right: 5px;
+        }
+
+        /* DESCRICAO */
+        body .descricao{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        body .descricao .desc{
+            width: 70%;
+        }
+
+        body .descricao .comprar{
+            width: 20%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        body .descricao .comprar p{
+            width: 40%;
+            font-size: 14px;
+        }
+
+        body .descricao .comprar button{
+            width: 90%;
+            margin: auto;
+            padding: 5px 0px;
+            color: white;
+            font-weight: bold;
+            border: none;
+            background-color: rgb(38, 38, 180);
+            cursor: pointer;
+        }
+
+
+        /* COMODIDADE */
+        body .comodidade{
+            text-align: center;
+        }
+
+        body .comodidade h3{
+            margin: 30px 0px;
+            text-align: left;
+        }
+
+        body .comodidade span{
+            display: inline-block;
+            margin: 10px 30px;
+        }
+
+        /* TOAST  */
+        body .toast-msg{
+            width: 300px;
+            position: fixed;
+            top: 20px;
+            right: 10px;
+            padding: 10px 10px;
+            background-color: rgb(38, 38, 180);
+            color: white;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: justify;
+            animation: inOut 0.8s normal;
+        }
+
+        @keyframes inOut{
+            from{
+                transform: translateX(500px);
+            }
+            to{
+                transform: translateX(0px);
+            }
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        /* IMG  */
+        body .img{
+            display: grid;
+            grid-template-columns: repeat(5);
+            grid-template-rows: repeat(4);
+            gap: 5px;
+        }
+
+        body .img div{
+            overflow: hidden;
+        }
+
+        body .img div:hover img{
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        body .img div:nth-child(1){
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        }
+
+        body .img div:nth-child(2){
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        body .img div:nth-child(3){
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+
+        body .img div:nth-child(4){
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+
+        body .img div img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        /* HEADER  */
+        header{
+            height: 70px;
+            background: none;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        header nav ul li a{
+            color: black;
+        }
+    </style>
     <title>Hotel</title>
 </head>
 <body>
-    <h1>Hotel</h1>
+    <header>
+        <nav>
+            <div class="brand-logo">
+                <a href="../index.html"><img src="" alt="Logo burb" title="Logo burb"></a>
+            </div>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="hoteis.html">Hotéis</a></li>
+                <li><a href="pacotes.html">Pacotes</a></li>
+                <li><a href="#">Atividades</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="estrela"><p></p></div>
+    <div class="titulo">
+        <div class="nome"><p></p></div>
+        <div class="preco"><p></p></div>
+    </div>
+    <div class="endereco"><p></p></div>
+    <div class="img"></div>
+    <div class="descricao">
+        <div class="desc"><p></p></div>
+        <div class="comprar">
+            <p class="diaria"></p>
+            <p class="valor"></p>
+            <button onclick="reservar(event)">reservar</button>
+        </div>
+    </div>
+    <div class="comodidade">
+        <h3>Principais Comodidades</h3>
+    </div>
 
+    <div class="toast-msg hidden">
+        <div class="msg">
+            <p>Reserva efetuada com sucesso!</p>
+        </div>
+    </div>
     <script src="hotel.js"></script>
 </body>
 </html>
